@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow — Smart Task Manager</title>
+  <meta name="description" content="A full-stack task manager built with Node.js, Express and MongoDB by Jisan Halder."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-icon">✅</span>
+        <span class="brand-name">TaskFlow</span>
+      </div>
+
+      <nav class="filters">
+        <button class="filter-btn active" data-filter="all">
+          <span>📋</span> All Tasks
+          <span class="count" id="countAll">0</span>
+        </button>
+        <button class="filter-btn" data-filter="active">
+          <span>🔥</span> Active
+          <span class="count" id="countActive">0</span>
+        </button>
+        <button class="filter-btn" data-filter="completed">
+          <span>✅</span> Completed
+          <span class="count" id="countCompleted">0</span>
+        </button>
+      </nav>
+
+      <div class="priority-legend">
+        <p class="legend-title">Priority</p>
+        <div class="legend-item"><span class="dot high"></span> High</div>
+        <div class="legend-item"><span class="dot medium"></span> Medium</div>
+        <div class="legend-item"><span class="dot low"></span> Low</div>
+      </div>
+
+      <a href="https://github.com/officialjisanhalder-art/task-manager" target="_blank" class="github-link">
+        ⭐ View on GitHub
+      </a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Top Bar -->
+      <div class="topbar">
+        <div>
+          <h1 class="page-title">My Tasks</h1>
+          <p class="page-sub" id="dateDisplay">—</p>
+        </div>
+        <button class="add-btn" id="openModalBtn">+ Add Task</button>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-section">
+        <div class="progress-info">
+          <span id="progressText">0 of 0 completed</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <div class="task-list" id="taskList">
+        <!-- tasks go here -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📭</div>
+        <h3>No tasks here!</h3>
+        <p>Click "+ Add Task" to create your first task.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>✍️ New Task</h2>
+        <button class="modal-close" id="closeModalBtn">✕</button>
+      </div>
+
+      <form id="taskForm">
+        <div class="form-group">
+          <label for="taskTitle">Task Title *</label>
+          <input type="text" id="taskTitle" placeholder="What needs to be done?" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="taskDesc">Description (optional)</label>
+          <textarea id="taskDesc" placeholder="Add more details..." rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Priority</label>
+          <div class="priority-btns">
+            <button type="button" class="pri-btn" data-priority="low">🟢 Low</button>
+            <button type="button" class="pri-btn active" data-priority="medium">🟡 Medium</button>
+            <button type="button" class="pri-btn" data-priority="high">🔴 High</button>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Add Task ✅</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
