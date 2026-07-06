@@ -1,7 +1,12 @@
 <div align="center">
 
 <!-- Banner Generator -->
-<img src="https://capsule-render.vercel.app/api?type=soft&color=8a2be2&height=220&section=header&text=⚡%20TaskFlow%20⚡&fontSize=55&fontColor=ffffff&animation=twinkle&desc=Premium%20Glassmorphism%20Task%20Dashboard&descAlignY=65&descAlign=50" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=8a2be2&height=220&section=header&text=⚡%20TaskFlow%20⚡&fontSize=55&fontColor=ffffff&animation=twinkle&desc=Premium%20Glassmorphism%20Task%20Dashboard&descAlignY=65&descAlign=50" width="100%"/>
+
+<br/>
+
+<!-- Animated Typing Subtitle -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&width=500&lines=Organize+your+workflow+smoothly;Real-time+interactive+glassmorphism+UI;Backend+Express+APIs+%2B+MongoDB" alt="Typing SVG" />
 
 <br/>
 
@@ -23,7 +28,7 @@
 
 </div>
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🔮 Visual Preview (Vibe Check)
 
@@ -39,7 +44,7 @@
 └──────────────────────────────────────────────────────────┘
 ```
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🚀 Key Features
 
@@ -54,7 +59,7 @@
 - **Mongoose Schemas**: Strict data models with title validations and creation timestamps.
 - **Smart Fallback**: The server automatically detects if MongoDB is missing and switches to an in-memory repository to prevent application crashes.
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🎨 Design System & Color Codes
 
@@ -69,7 +74,7 @@ Neon Accents    =  Primary Royal Blue (#6c63ff)
 🟢 Low Priority    = #2ed573 (Emerald Green)
 ```
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🛠️ Stack Structure
 
@@ -84,7 +89,7 @@ Neon Accents    =  Primary Royal Blue (#6c63ff)
 
 </div>
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 📂 Repository Blueprint
 
@@ -99,7 +104,7 @@ task-manager/
     └── app.js         # Async endpoint communications controller
 ```
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🚀 Local Deployment Setup
 
@@ -121,7 +126,7 @@ npm start
 
 Open **`http://localhost:3000`** in your browser to start tracking tasks!
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 ## 🔮 Upcoming Milestones
 
@@ -130,7 +135,7 @@ Open **`http://localhost:3000`** in your browser to start tracking tasks!
 - [ ] ⏰ Custom push notifications for high-priority due dates
 - [ ] 📊 Weekly performance stats analytics page
 
----
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a68c7c10b.gif" width="100%">
 
 <div align="center">
 
