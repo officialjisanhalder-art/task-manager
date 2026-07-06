@@ -6,6 +6,8 @@
 <br/>
 
 <!-- Tech Badges -->
+[![🌐 Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Click_Here-8a2be2?style=for-the-badge)](https://officialjisanhalder-art.github.io/task-manager/public/)
+&nbsp;
 [![GitHub Repo](https://img.shields.io/badge/Code-Repository-8a2be2?style=for-the-badge&logo=github)](https://github.com/officialjisanhalder-art/task-manager)
 &nbsp;
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)

@@ -51,7 +51,7 @@ function showToast(message) {
   }, 3000);
 }
 
-// Fetch Tasks from server API
+// Fetch Tasks from server API or fallback to localStorage
 async function fetchTasks() {
   try {
     const res = await fetch(`${API_BASE}/tasks`);
@@ -61,13 +61,25 @@ async function fetchTasks() {
       renderTasks();
       updateProgress();
     } else {
-      showToast('Error loading tasks: ' + data.error);
+      loadLocalStorageTasks();
     }
   } catch (err) {
-    showToast('Failed to connect to backend server!');
-    console.error(err);
+    console.log('Backend offline. Falling back to localStorage.');
+    loadLocalStorageTasks();
   }
 }
+
+function loadLocalStorageTasks() {
+  const localData = localStorage.getItem('taskflow_tasks');
+  tasks = localData ? JSON.parse(localData) : [];
+  renderTasks();
+  updateProgress();
+}
+
+function saveLocalStorageTasks() {
+  localStorage.setItem('taskflow_tasks', JSON.stringify(tasks));
+}
+
 
 // Setup all click / form submit handlers
 function setupEventListeners() {
@@ -107,6 +119,15 @@ function setupEventListeners() {
     const title = document.getElementById('taskTitle').value;
     const description = document.getElementById('taskDesc').value;
 
+    const newTask = {
+      _id: 'local_' + Date.now(),
+      title,
+      description,
+      priority: selectedPriority,
+      completed: false,
+      createdAt: new Date().toISOString()
+    };
+
     try {
       const res = await fetch(`${API_BASE}/tasks`, {
         method: 'POST',
@@ -120,19 +141,29 @@ function setupEventListeners() {
         renderTasks();
         updateProgress();
         showToast('Task added successfully!');
-        
-        // close modal
-        modalOverlay.classList.remove('show');
-        taskForm.reset();
-        resetPriorityBtns();
+        closeModal();
       } else {
-        showToast('Failed to save task: ' + data.error);
+        saveLocally(newTask);
       }
     } catch (err) {
-      showToast('Error sending task to server');
-      console.error(err);
+      saveLocally(newTask);
     }
   });
+
+  function saveLocally(task) {
+    tasks.unshift(task);
+    saveLocalStorageTasks();
+    renderTasks();
+    updateProgress();
+    showToast('Task saved locally! (Offline Mode)');
+    closeModal();
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove('show');
+    taskForm.reset();
+    resetPriorityBtns();
+  }
 
   // Sidebar filters selection
   document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -153,40 +184,50 @@ function resetPriorityBtns() {
 
 // Toggle Task Done/Active
 async function toggleTask(id) {
+  const task = tasks.find(t => t._id === id);
+  if (!task) return;
+
+  // Toggle locally first
+  task.completed = !task.completed;
+  renderTasks();
+  updateProgress();
+
   try {
     const res = await fetch(`${API_BASE}/tasks/${id}`, { method: 'PATCH' });
     const data = await res.json();
     if (data.success) {
-      const task = tasks.find(t => t._id === id);
-      if (task) {
-        task.completed = data.task.completed;
-        renderTasks();
-        updateProgress();
-        showToast(task.completed ? 'Task marked complete! 🎉' : 'Task marked active.');
-      }
+      task.completed = data.task.completed;
+      renderTasks();
+      updateProgress();
+      showToast(task.completed ? 'Task marked complete! 🎉' : 'Task marked active.');
     } else {
-      showToast('Error updating task: ' + data.error);
+      // Sync localstorage if server failed
+      saveLocalStorageTasks();
+      showToast(task.completed ? 'Task marked complete! (Offline)' : 'Task marked active.');
     }
   } catch (err) {
-    showToast('Failed to update task state');
+    saveLocalStorageTasks();
+    showToast(task.completed ? 'Task marked complete! (Offline)' : 'Task marked active.');
   }
 }
 
 // Delete Task from database
 async function deleteTask(id) {
+  // Remove locally first
+  tasks = tasks.filter(t => t._id !== id);
+  renderTasks();
+  updateProgress();
+
   try {
     const res = await fetch(`${API_BASE}/tasks/${id}`, { method: 'DELETE' });
     const data = await res.json();
-    if (data.success) {
-      tasks = tasks.filter(t => t._id !== id);
-      renderTasks();
-      updateProgress();
-      showToast('Task deleted.');
-    } else {
-      showToast('Error deleting task: ' + data.error);
+    if (!data.success) {
+      saveLocalStorageTasks();
     }
+    showToast('Task deleted.');
   } catch (err) {
-    showToast('Failed to delete task');
+    saveLocalStorageTasks();
+    showToast('Task deleted.');
   }
 }
 
