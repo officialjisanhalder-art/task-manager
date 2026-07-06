@@ -1,6 +1,12 @@
-# 📋 TaskFlow — Smart Task Manager
+<div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Demo_Fallback-blue?style=for-the-badge)](#)
+<!-- Banner Generator -->
+<img src="https://capsule-render.vercel.app/api?type=soft&color=8a2be2&height=220&section=header&text=⚡%20TaskFlow%20⚡&fontSize=55&fontColor=ffffff&animation=twinkle&desc=Premium%20Glassmorphism%20Task%20Dashboard&descAlignY=65&descAlign=50" width="100%"/>
+
+<br/>
+
+<!-- Tech Badges -->
+[![GitHub Repo](https://img.shields.io/badge/Code-Repository-8a2be2?style=for-the-badge&logo=github)](https://github.com/officialjisanhalder-art/task-manager)
 &nbsp;
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -9,94 +15,127 @@
 ![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
+<br/>
+
+*Stop using boring spreadsheets. Track your coding progress with visual glassmorphic vibes.* 🔮
+
 </div>
 
 ---
+
+## 🔮 Visual Preview (Vibe Check)
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  ✅ TaskFlow                       [ + Add Task ]        │
+│  ──────────────────────────────────────────────────────  │
+│  [  5 of 12 Completed  ]              [█████░░░░░] 41%   │
+│                                                          │
+│  🔴 Write 3 LeetCode algorithms             [🗑️]          │
+│  🟡 Implement Express endpoints              [🗑️]          │
+│  🟢 Setup Tailwind configurations            [🗑️]          │
+└──────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Key Features
+
+### 💻 Frontend (Visual Excellence)
+- **Glassmorphic UI**: Transparent frosted-glass dashboard panels using CSS backdrop filters.
+- **Micro-Animations**: Clean translation hover effects on task list cards.
+- **Priority Border-Indicators**: Visual high/medium/low coding tags.
+- **Dynamic Stats Bar**: Interactive percentage counter and custom gradient progress bar.
+
+### ⚙️ Backend (Robust Architecture)
+- **RESTful Endpoints**: Clean JSON APIs (`GET`, `POST`, `PATCH`, `DELETE`).
+- **Mongoose Schemas**: Strict data models with title validations and creation timestamps.
+- **Smart Fallback**: The server automatically detects if MongoDB is missing and switches to an in-memory repository to prevent application crashes.
+
+---
+
+## 🎨 Design System & Color Codes
+
+```ini
+Background      =  Deep Cosmic Navy (#090a10)
+Panel Surface   =  Frosted Purple-Navy (rgba(20, 22, 37, 0.6))
+Neon Accents    =  Primary Royal Blue (#6c63ff)
+
+[Priority Badges]
+🔴 High Priority   = #ff4757 (Cherry Red)
+🟡 Mid Priority    = #ffa502 (Sunset Orange)
+🟢 Low Priority    = #2ed573 (Emerald Green)
+```
+
+---
+
+## 🛠️ Stack Structure
 
 <div align="center">
 
 ```
-  ████████╗ █████╗ ███████╗██╗  ██╗███████╗██╗      ██████╗ ██╗    ██╗
-  ╚══██╔══╝██╔══██╗██╔════╝██║  ██║██╔════╝██║     ██╔═══██╗██║    ██║
-     ██║   ███████║███████╗███████║█████╗  ██║     ██║   ██║██║ █╗ ██║
-     ██║   ██╔══██║╚════██║██╔══██║██╔══╝  ██║     ██║   ██║██║███╗██║
-     ██║   ██║  ██║███████║██║  ██║██║     ███████╗╚██████╔╝╚███╔███╔╝
-     ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝ ╚═════╝  ╚══╝╚══╝ 
+  ┌─────────────────┐       ┌────────────────┐       ┌───────────────┐
+  │  Client Web UI  │ ───>  │  Express API   │ ───>  │  MongoDB Atlas│
+  │  (HTML/CSS/JS)  │ <───  │  (Node Server) │ <───  │  (Data Store) │
+  └─────────────────┘       └────────────────┘       └───────────────┘
 ```
-
-*An interactive dashboard layout for keeping track of your daily flow.*
 
 </div>
 
 ---
 
-## ✨ Features
+## 📂 Repository Blueprint
 
-- **Full Stack CRUD APIs** — Connects directly to local/remote MongoDB databases using Mongoose
-- **Zero-Config Database Fallback** — No Mongo installed? The backend auto-switches to in-memory store so it never crashes!
-- **Premium Glassmorphic Panel Layout** — Neon glows, blur backdrops, responsive sidebar layout
-- **Color Coded Priorities** — Visually see high/medium/low priority tags
-- **Task Filters** — Instantly filter between All, Active, and Completed items
-- **Progress Tracking** — Live stats and fill bar updating task completion percentages
+```bash
+task-manager/
+├── server.js          # REST API controller & DB connection script
+├── package.json       # Production dependencies & startup commands
+├── .gitignore         # Keeps node_modules out of repositories
+└── public/
+    ├── index.html     # Dashboard layout view
+    ├── style.css      # Frosted glass stylesheet & keyframes
+    └── app.js         # Async endpoint communications controller
+```
 
 ---
 
-## 🚀 Quick Run (Locally)
+## 🚀 Local Deployment Setup
 
-### Step 1 — Clone the project
+Follow these commands to test the application on your computer:
+
 ```bash
+# 1. Clone the project
 git clone https://github.com/officialjisanhalder-art/task-manager.git
+
+# 2. Open directory
 cd task-manager
-```
 
-### Step 2 — Install Backend Server Dependencies
-```bash
+# 3. Install packages
 npm install
-```
 
-### Step 3 — Run the Server
-```bash
+# 4. Start backend server
 npm start
 ```
 
-Your console will output:
-> `🚀 Server running at http://localhost:3000`
-> `📋 Task Manager API ready!`
-
-Open **`http://localhost:3000`** inside your web browser to test!
+Open **`http://localhost:3000`** in your browser to start tracking tasks!
 
 ---
 
-## 🛠️ Stack Architecture
+## 🔮 Upcoming Milestones
 
-```
-Frontend View   →  Vanilla HTML5, Glassmorphism CSS3, clean Client Javascript
-Local Server    →  NodeJS, Express Framework
-Database Client →  MongoDB Server connected via Mongoose ODM
-```
-
----
-
-## 📂 Project Structure
-
-```
-task-manager/
-├── server.js      → Express REST controller, DB connection, router APIs
-├── package.json   → Node configuration scripts
-└── public/
-    ├── index.html → Dashboard layout panel views
-    ├── style.css  → Modern animations, blur panels
-    └── app.js     → Async API fetches & controller script
-```
+- [ ] 🔒 JWT user login & registration security
+- [ ] 🌓 Dynamic Light/Dark UI theme toggler
+- [ ] ⏰ Custom push notifications for high-priority due dates
+- [ ] 📊 Weekly performance stats analytics page
 
 ---
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6c63ff&height=120&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=soft&color=8a2be2&height=90&section=footer" width="100%"/>
 
-**Made with ❤️ by [Jisan Halder](https://github.com/officialjisanhalder-art)**
+**Crafted with ❤️ by [Jisan Halder](https://github.com/officialjisanhalder-art)**
 
-⭐ *Give it a star if you liked this project layout!*
+*Give it a Star if you found this design concept neat! ⭐*
 
 </div>
