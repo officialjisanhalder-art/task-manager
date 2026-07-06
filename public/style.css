@@ -620,15 +620,107 @@ body {
   display: block;
 }
 
-/* Animations */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Animations & Transitions */
+
+/* 1. Floating blobs background animation */
+.blob {
+  animation: floatBlobs 20s ease-in-out infinite alternate;
+}
+.b1 {
+  animation-delay: 0s;
+}
+.b2 {
+  animation-delay: -5s;
 }
 
+@keyframes floatBlobs {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(360deg);
+  }
+}
+
+/* 2. Custom checkmark animation */
+.checkmark {
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s ease;
+}
+.checkbox-container:active .checkmark {
+  transform: scale(0.85);
+}
+
+/* 3. Task slide in list */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 4. Smooth strike-through line line-wipe */
+.task-item.completed .task-title-text {
+  position: relative;
+  color: var(--text-muted);
+  text-decoration: none; /* override default */
+}
+.task-item.completed .task-title-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--text-muted);
+  transform: translateY(-50%);
+  transform-origin: left;
+  animation: strikeReveal 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes strikeReveal {
+  from { transform: translateY(-50%) scaleX(0); }
+  to   { transform: translateY(-50%) scaleX(1); }
+}
+
+/* 5. Delete hover wiggle shake */
+.delete-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.delete-btn:hover {
+  transform: scale(1.15) rotate(8deg);
+}
+.delete-btn:active {
+  transform: scale(0.9);
+}
+
+/* 6. Modal overlay & inner popup scale spring bounce */
+.modal-overlay {
+  transition: opacity 0.25s ease;
+}
+.modal {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 7. Toast entry */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Responsive design */
@@ -638,3 +730,4 @@ body {
   .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--panel-border); }
   .main { padding: 30px 20px; }
 }
+
